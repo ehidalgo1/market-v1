@@ -1,0 +1,92 @@
+---
+import Card from "./Card.astro";
+import apple_watch from '../assets/images/products/apple-watch.webp';
+import iphone_15 from '../assets/images/products/iphone-15-pink.webp';
+import iphone_16 from '../assets/images/products/iphone-16-white.webp';
+import iphone_17 from '../assets/images/products/iphone-17-lavanda.webp';
+import iphone_17_pm from '../assets/images/products/iphone-17-promax-orange.webp';
+
+
+const product1 = {
+	make: "Apple",
+	product: "Apple Watch Series 7 GPS, Aluminium Case, Starlight",
+	color: "Rosado",
+	imageUrl: apple_watch.src,
+	price: 489990,
+	rating: 4,
+	productType: "Apple Watch"
+};
+
+const product2 = {
+	make: "Apple",
+	product: "Iphone 15 128GB Rosado",
+	color: "Rosado",
+	imageUrl: iphone_15.src,
+	price: 489990,
+	rating: 4,
+	productType: "Iphone"
+};
+
+const product3 = {
+	make: "Apple",
+	product: "Iphone 15 128GB",
+	color: "Blanco",
+	imageUrl: iphone_16.src,
+	price: 489990,
+	rating: 4,
+	productType: "Iphone"
+};
+
+const product4 = {
+	make: "Apple",
+	product: "Iphone 17 256GB",
+	color: "Lavanda",
+	imageUrl: iphone_17.src,
+	price: 489990,
+	rating: 4,
+	productType: "Iphone"
+};
+
+const product5 = {
+	make: "Apple",
+	product: "Iphone 17 256GB Pro Max",
+	color: "Naranja",
+	imageUrl: iphone_17_pm.src,
+	price: 489990,
+	rating: 4,
+	productType: "Iphone"
+};
+
+let products = [
+	...Array(3).fill(product1),
+	...Array(3).fill(product2),
+	...Array(3).fill(product3),
+	...Array(3).fill(product4),
+	...Array(3).fill(product5),
+];
+const PRODUCTS = products.sort(function() { return Math.random() - 0.5 });
+---
+
+<div id="container">
+	<main>
+		<section id="hero">
+			<div class="container mx-auto py-8">
+				<h2 class="text-3xl font-bold mb-4 ml-2">Productos</h2>
+				<div class="grid grid-cols-2 md:grid-cols-3 md:gap-4 lg:grid-cols-4 xl:grid-cols-5">
+				{
+					PRODUCTS.map(product => (
+						<Card
+							make={product.make}
+							product={product.product}
+							color={product.color}
+							imageUrl={product.imageUrl}
+							price={product.price}
+							rating={product.rating}
+						/>
+					))
+				}
+				</div>
+			</div>
+		</section>
+	</main>
+</div>

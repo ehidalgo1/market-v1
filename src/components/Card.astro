@@ -1,0 +1,57 @@
+---
+import apple_watch from '../assets/images/products/apple-watch.webp';
+
+interface Props {
+    make: string;
+    product: string;
+    color?: string;
+    imageUrl: string;
+    price: number;
+    rating: number;
+}
+const { make, product, color, imageUrl, price, rating }: Props = Astro.props;
+
+const formattedPrice = (price: number) => {
+    return new Intl.NumberFormat('es-CL', {
+        style: 'currency',
+        currency: 'CLP',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0
+    }).format(price);
+};
+---
+
+<div id="product-card" class="w-full max-w-xs max-h-sm bg-neutral-primary-soft p-6 border border-default mx-auto sm:mx-0 rounded-base">
+    <a href="#">
+        <img class="rounded-base mb-6" src={imageUrl} alt="product image" />
+        <!-- start carrousel --->
+        
+        <!-- end carrousel --->
+    </a>
+    <div class="content-between">
+        <div class="flex items-center space-x-3 mb-6">
+            <div class="flex items-center space-x-1 rtl:space-x-reverse">
+                <svg class="w-4 h-4 text-fg-yellow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                <svg class="w-4 h-4 text-fg-yellow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                <svg class="w-4 h-4 text-fg-yellow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                <svg class="w-4 h-4 text-fg-yellow" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+                <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M13.849 4.22c-.684-1.626-3.014-1.626-3.698 0L8.397 8.387l-4.552.361c-1.775.14-2.495 2.331-1.142 3.477l3.468 2.937-1.06 4.392c-.413 1.713 1.472 3.067 2.992 2.149L12 19.35l3.897 2.354c1.52.918 3.405-.436 2.992-2.15l-1.06-4.39 3.468-2.938c1.353-1.146.633-3.336-1.142-3.477l-4.552-.36-1.754-4.17Z"/></svg>
+            </div>
+            <span class="bg-brand-softer border border-brand-subtle text-fg-brand-strong text-xs px-1.5 py-0.5 rounded-sm">4/5</span>
+        </div>
+        <a href="#">
+            <p class="text-sm text-muted-foreground mb-1">{make}</p>
+            <h6 class="text-sm text-heading font-semibold tracking-tight">{product + color}</h5>
+        </a>
+        <div class="flex items-center mt-6">
+            <span class="text-1xl font-bold text-heading">{formattedPrice(price)}</span>  
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Add any component-specific styles here */
+    #product-card {
+        background-color: #FFFFFF;
+    }
+</style>
