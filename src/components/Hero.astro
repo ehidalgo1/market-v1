@@ -8,6 +8,7 @@ import iphone_17_pm from '../assets/images/products/iphone-17-promax-orange.webp
 
 
 const product1 = {
+	id: "1",
 	make: "Apple",
 	product: "Apple Watch Series 7 GPS, Aluminium Case, Starlight",
 	color: "Rosado",
@@ -18,6 +19,7 @@ const product1 = {
 };
 
 const product2 = {
+	id: "2",
 	make: "Apple",
 	product: "Iphone 15 128GB Rosado",
 	color: "Rosado",
@@ -28,6 +30,7 @@ const product2 = {
 };
 
 const product3 = {
+	id: "3",
 	make: "Apple",
 	product: "Iphone 15 128GB",
 	color: "Blanco",
@@ -38,6 +41,7 @@ const product3 = {
 };
 
 const product4 = {
+	id: "4",
 	make: "Apple",
 	product: "Iphone 17 256GB",
 	color: "Lavanda",
@@ -48,6 +52,7 @@ const product4 = {
 };
 
 const product5 = {
+	id: "5",
 	make: "Apple",
 	product: "Iphone 17 256GB Pro Max",
 	color: "Naranja",
@@ -58,11 +63,11 @@ const product5 = {
 };
 
 let products = [
-	...Array(3).fill(product1),
-	...Array(3).fill(product2),
-	...Array(3).fill(product3),
-	...Array(3).fill(product4),
-	...Array(3).fill(product5),
+	...Array(10).fill(product1),
+	...Array(10).fill(product2),
+	...Array(10).fill(product3),
+	...Array(10).fill(product4),
+	...Array(10).fill(product5),
 ];
 const PRODUCTS = products.sort(function() { return Math.random() - 0.5 });
 ---
@@ -71,11 +76,12 @@ const PRODUCTS = products.sort(function() { return Math.random() - 0.5 });
 	<main>
 		<section id="hero">
 			<div class="container mx-auto py-8">
-				<h2 class="text-3xl font-bold mb-4 ml-2">Productos</h2>
+				<h2 class="text-2xl font-bold mb-4 ml-2">Todo</h2>
 				<div class="grid grid-cols-2 md:grid-cols-3 md:gap-4 lg:grid-cols-4 xl:grid-cols-5">
 				{
 					PRODUCTS.map(product => (
 						<Card
+							id={product.id}
 							make={product.make}
 							product={product.product}
 							color={product.color}
